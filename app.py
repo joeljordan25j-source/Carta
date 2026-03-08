@@ -20,15 +20,14 @@ CONFIG = {
     "fecha": datetime.now().strftime("%d de %B de %Y"),
     "mensaje": """Mi niña hermosa 🥺💘💍
 
-Quiero que sepas que lo que siento por ti no es algo pequeño ni pasajero. Te amo con una intensidad que a veces ni yo mismo logro explicar. Desde que llegaste a mi vida, todo cambió: mis pensamientos, mis prioridades y hasta la forma en la que veo el mundo.
-
-Eres esa persona que con una sola palabra logra calmarme, la que puede sacarme una sonrisa incluso en los días más pesados. Te amo por quien eres, por tu forma tan especial de ser, por tu manera de amar y por cada pequeño detalle que te hace única. No hay nadie que se compare contigo, ni nadie que pueda ocupar el lugar que tienes en mi corazón. 🥺🫂💗
-
-A tu lado he aprendido que amar también significa cuidar, respetar, escuchar y crecer juntos. Y aunque no soy perfecto, mi amor por ti es real, sincero y está lleno de ganas de seguir mejorando cada día por nosotros. Te amo en tus mejores momentos, pero también en los días difíciles, porque todo lo que eres forma parte de lo que amo. 🫂💘🫶🏻
-
-Quiero seguir construyendo recuerdos contigo, compartir sueños, apoyarte en cada paso que des y ser ese lugar seguro al que siempre puedas volver. Mi amor por ti no tiene límites ni condiciones; es puro, fuerte y verdadero. 🥺🫶🏻💗
-
-Te amo hoy, mañana y todos los días que la vida me permita caminar a tu lado. 🥺🫂🤍""",
+Feliz Día de la Mujer, mi amor ❤️🌹
+Mi querida,
+Hoy es un día muy especial, un día para celebrar a mujeres increíbles como tú ✨. Pero la verdad es que para mí, cada día es una oportunidad para admirarte, valorarte y recordarte lo maravillosa que eres 💖.
+Eres fuerte 💪, eres valiente 🌟, eres amorosa ❤️ y tienes una luz que ilumina todo a tu alrededor. Admiro la forma en que enfrentas la vida con determinación y ternura, la manera en que conviertes los momentos simples en algo mágico ✨.
+Quiero que sepas lo orgulloso que estoy de ti, de todo lo que eres y de todo lo que logras cada día. Hoy celebro a la mujer increíble que eres, pero también agradezco el privilegio de tenerte en mi vida 💕.
+Que este día esté lleno de amor, alegría y reconocimiento, porque te lo mereces todo y más 🌹. ¡Feliz Día de la Mujer, mi amor! Te amo con todo mi corazón ❤️.
+Con amor y cariño.
+💌💖""",
     "color_principal": "#ff3d6e",
     "color_secundario": "#ffc2d1",
     "accent": "#fff4f7",
