@@ -9,19 +9,18 @@ app = Flask(__name__)
 # CONFIGURACIÓN
 # =========================
 CONFIG = {
-    "titulo": "Feliz día de la mujer mi amor",
-    "nombre_receptor": "Mi niña hermosa",
-    "nombre_emisor": "Tu eterno enamorado",
+    "titulo": "Feliz día de la mujer mamita",
+    "nombre_receptor": "Mi mami hermosa",
+    "nombre_emisor": "Tu hijo amado",
     "fecha": datetime.now().strftime("%d de %B de %Y"),
-    "mensaje": """Mi niña hermosa 🥺💘💍
+    "mensaje": """Mi mami bella 🥺💘
 
-Feliz Día de la Mujer, mi amor ❤️🌹
-Mi querida,
-Hoy es un día muy especial, un día para celebrar a mujeres increíbles como tú ✨. Pero la verdad es que para mí, cada día es una oportunidad para admirarte, valorarte y recordarte lo maravillosa que eres 💖.
-Eres fuerte 💪, eres valiente 🌟, eres amorosa ❤️ y tienes una luz que ilumina todo a tu alrededor. Admiro la forma en que enfrentas la vida con determinación y ternura, la manera en que conviertes los momentos simples en algo mágico ✨.
-Quiero que sepas lo orgulloso que estoy de ti, de todo lo que eres y de todo lo que logras cada día. Hoy celebro a la mujer increíble que eres, pero también agradezco el privilegio de tenerte en mi vida 💕.
-Que este día esté lleno de amor, alegría y reconocimiento, porque te lo mereces todo y más 🌹. ¡Feliz Día de la Mujer, mi amor! Te amo con todo mi corazón ❤️.
-Con amor y cariño,
+Feliz Día de la Mujer, mamá❤️🌹
+Mi querida madre,
+Te quiero recordar lo mucho que te amo mami enserio muchas gracias por todo mami gracias por estar en las buenas y en las malas mami enserio y quiero 
+decirte que eres la mejor mama para mi mami espero y difrutes este dia mami te amo mucho mami en verdad no te olvides que siempre estare para ti mami 
+porque al final del dia tu siempre estas conmigo mami gracias por trerme al mundo y gracias por ser mi mama en verdad mami tu sabes que no soy de expresarme bien
+pero son palabras que sales de mi corazon mami y te las digo con total sinceridad mami
 💌💖""",
     "color_principal": "#ff3d6e",
     "color_secundario": "#ffc2d1",
