@@ -9,13 +9,23 @@ app = Flask(__name__)
 # CONFIGURACIÓN
 # =========================
 CONFIG = {
-    "titulo": "q tal",
-    "nombre_receptor": "efe",
-    "nombre_emisor": "kiubo",
+    "titulo": "feliz dia mi amor",
+    "nombre_receptor": "mi niña hermosa",
+    "nombre_emisor": "tu eterno enamorado",
     "fecha": datetime.now().strftime("%d de %B de %Y"),
-    "mensaje": """oe
+    "mensaje": """mi niña hermosa
 
-sodfndiufnefndfnefodkmvolireoivmjoieroid""",
+Mi niña hermosa 🥺💘💍
+
+Quiero que sepas que lo que siento por ti no es algo pequeño ni pasajero. Te amo con una intensidad que a veces ni yo mismo logro explicar. Desde que llegaste a mi vida, todo cambió: mis pensamientos, mis prioridades y hasta la forma en la que veo el mundo.
+
+Eres esa persona que con una sola palabra logra calmarme, la que puede sacarme una sonrisa incluso en los días más pesados. Te amo por quien eres, por tu forma tan especial de ser, por tu manera de amar y por cada pequeño detalle que te hace única. No hay nadie que se compare contigo, ni nadie que pueda ocupar el lugar que tienes en mi corazón. 🥺🫂💗
+
+A tu lado he aprendido que amar también significa cuidar, respetar, escuchar y crecer juntos. Y aunque no soy perfecto, mi amor por ti es real, sincero y está lleno de ganas de seguir mejorando cada día por nosotros. Te amo en tus mejores momentos, pero también en los días difíciles, porque todo lo que eres forma parte de lo que amo. 🫂💘🫶🏻
+
+Quiero seguir construyendo recuerdos contigo, compartir sueños, apoyarte en cada paso que des y ser ese lugar seguro al que siempre puedas volver. Mi amor por ti no tiene límites ni condiciones; es puro, fuerte y verdadero. 🥺🫶🏻💗
+
+Te amo hoy, mañana y todos los días que la vida me permita caminar a tu lado. 🥺🫂🤍""",
     "color_principal": "#ff3d6e",
     "color_secundario": "#ffc2d1",
     "accent": "#fff4f7",
