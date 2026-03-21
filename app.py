@@ -1,246 +1,91 @@
-# -*- coding: utf-8 -*-
-import os
-from datetime import datetime
-from flask import Flask
+import turtle
+import math
 
-app = Flask(__name__)
+# Configuración inicial
+screen = turtle.Screen()
+screen.bgcolor("black")
+screen.title("Una Rosa Amarilla para Ti")
 
-# =========================
-# CONFIGURACIÓN
-# =========================
-CONFIG = {
-    "titulo": "feliz dia mi amor",
-    "nombre_receptor": "mi niña hermosa",
-    "nombre_emisor": "tu eterno enamorado",
-    "fecha": datetime.now().strftime("%d de %B de %Y"),
-    "mensaje": """mi niña hermosa
+t = turtle.Turtle()
+t.speed(0) # Velocidad máxima de dibujo para la animación
 
-Mi niña hermosa 🥺💘💍
+def dibujar_estrella(x, y, tamaño):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color("white")
+    for _ in range(5):
+        t.forward(tamaño)
+        t.right(144)
 
-Quiero que sepas que lo que siento por ti no es algo pequeño ni pasajero. Te amo con una intensidad que a veces ni yo mismo logro explicar. Desde que llegaste a mi vida, todo cambió: mis pensamientos, mis prioridades y hasta la forma en la que veo el mundo.
+# Decoración de fondo: Estrellas
+dibujar_estrella(-200, 200, 10)
+dibujar_estrella(150, 250, 15)
+dibujar_estrella(-150, -150, 12)
+dibujar_estrella(200, -100, 8)
 
-Eres esa persona que con una sola palabra logra calmarme, la que puede sacarme una sonrisa incluso en los días más pesados. Te amo por quien eres, por tu forma tan especial de ser, por tu manera de amar y por cada pequeño detalle que te hace única. No hay nadie que se compare contigo, ni nadie que pueda ocupar el lugar que tienes en mi corazón. 🥺🫂💗
+# Dibujo del tallo
+t.penup()
+t.goto(0, -200)
+t.pendown()
+t.setheading(90)
+t.color("green")
+t.width(4)
+t.forward(200)
 
-A tu lado he aprendido que amar también significa cuidar, respetar, escuchar y crecer juntos. Y aunque no soy perfecto, mi amor por ti es real, sincero y está lleno de ganas de seguir mejorando cada día por nosotros. Te amo en tus mejores momentos, pero también en los días difíciles, porque todo lo que eres forma parte de lo que amo. 🫂💘🫶🏻
+# Dibujo de la hoja
+t.right(90)
+t.fillcolor("green")
+t.begin_fill()
+t.circle(40, 90)
+t.left(90)
+t.circle(40, 90)
+t.end_fill()
+t.left(135)
+t.forward(30)
+t.left(180)
+t.forward(30)
+t.setheading(90)
+t.forward(50)
 
-Quiero seguir construyendo recuerdos contigo, compartir sueños, apoyarte en cada paso que des y ser ese lugar seguro al que siempre puedas volver. Mi amor por ti no tiene límites ni condiciones; es puro, fuerte y verdadero. 🥺🫶🏻💗
+# Animación de los pétalos de la rosa
+t.color("yellow")
+t.width(2)
 
-Te amo hoy, mañana y todos los días que la vida me permita caminar a tu lado. 🥺🫂🤍""",
-    "color_principal": "#ff3d6e",
-    "color_secundario": "#ffc2d1",
-    "accent": "#fff4f7",
-}
+def dibujar_petalo(radio, angulo):
+    t.fillcolor("#FFFF00") # Amarillo intenso
+    t.begin_fill()
+    for _ in range(2):
+        t.circle(radio, angulo)
+        t.left(180 - angulo)
+    t.end_fill()
 
-HTML_TEMPLATE = """<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{titulo}</title>
-  <style>
-    :root {{
-      --primary: {color_principal};
-      --secondary: {color_secundario};
-      --accent: {accent};
-      --ink: #521b2a;
-    }}
+# Capas de pétalos para dar detalle
+posiciones = [
+    (10, 100, 150), 
+    (10, 80, 100),
+    (10, 60, 80)
+]
 
-    * {{ box-sizing: border-box; }}
-    html, body {{
-      height: 100%;
-      margin: 0;
-      font-family: "Segoe UI", Roboto, sans-serif;
-      color: var(--ink);
-      background: #fff5f8;
-      overflow-x: hidden;
-    }}
+for petalos, radio, angulo in posiciones:
+    for _ in range(petalos):
+        dibujar_petalo(radio, angulo)
+        t.left(360 / petalos)
 
-    .bg {{
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at 10% 10%, rgba(255, 61, 110, .1), transparent 40%);
-      z-index: 0;
-    }}
+# Centro de la rosa (Naranja para profundidad)
+t.color("#FFD700")
+t.penup()
+t.goto(-5, 50)
+t.pendown()
+t.begin_fill()
+t.circle(10)
+t.end_fill()
 
-    .wrap {{
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }}
+# Texto decorativo con animación
+t.penup()
+t.goto(0, -250)
+t.color("yellow")
+t.write("Para alguien especial", align="center", font=("Arial", 18, "bold italic"))
 
-    .card {{
-      width: min(900px, 95vw);
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }}
-
-    .header {{
-      padding: 30px;
-      text-align: center;
-      background: linear-gradient(to bottom, var(--accent), white);
-      border-bottom: 1px solid var(--secondary);
-    }}
-
-    .title {{ margin: 0; color: var(--primary); font-size: 2.2rem; }}
-    .subtitle {{ margin: 10px 0 0; opacity: 0.7; }}
-
-    .body-content {{
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-    }}
-
-    @media (max-width: 768px) {{
-      .body-content {{ grid-template-columns: 1fr; }}
-    }}
-
-    .letter-box {{
-      background: #fff;
-      border: 1px solid var(--secondary);
-      border-radius: 15px;
-      padding: 25px;
-      min-height: 300px;
-      position: relative;
-    }}
-
-    .message {{
-      font-size: 1.1rem;
-      line-height: 1.6;
-      white-space: pre-wrap;
-      margin-bottom: 20px;
-    }}
-
-    .envelope {{
-      background: var(--accent);
-      border: 2px dashed var(--primary);
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      min-height: 200px;
-      transition: 0.3s;
-    }}
-
-    .envelope:hover {{ transform: scale(1.02); background: white; }}
-
-    .btn-group {{ display: flex; gap: 10px; margin-top: 20px; }}
-    .btn {{
-      padding: 10px 20px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }}
-    .btn-primary {{ background: var(--primary); color: white; }}
-    .btn-secondary {{ background: var(--secondary); color: var(--ink); }}
-
-    .footer {{ padding: 15px; text-align: center; font-size: 0.9rem; opacity: 0.6; }}
-
-    /* Cursor de escritura */
-    .typing::after {{
-      content: '|';
-      animation: blink 0.7s infinite;
-      color: var(--primary);
-    }}
-    @keyframes blink {{ 50% {{ opacity: 0; }} }}
-  </style>
-</head>
-<body>
-  <div class="bg"></div>
-  <div class="wrap">
-    <div class="card">
-      <div class="header">
-        <h1 class="title">{titulo}</h1>
-        <p class="subtitle" id="status">Toca el sobre para leer ✉️</p>
-      </div>
-
-      <div class="body-content">
-        <div class="letter-box">
-          <p style="color:var(--primary); font-weight:bold;">Para: {nombre_receptor}</p>
-          <div id="text-target" class="message"></div>
-          <p id="sig-target" style="text-align:right; font-weight:bold;"></p>
-          
-          <div class="btn-group">
-            <button class="btn btn-primary" onclick="startLetter()">Repetir</button>
-            <button class="btn btn-secondary" onclick="location.reload()">Reiniciar</button>
-          </div>
-        </div>
-
-        <div class="envelope" onclick="startLetter()">
-          <div style="font-size: 5rem;">💌</div>
-        </div>
-      </div>
-      <div class="footer">Hecho con ♥ para ti</div>
-    </div>
-  </div>
-
-  <script>
-    const msg = {mensaje_js};
-    const emisor = {nombre_emisor_js};
-    const fecha = {fecha_js};
-    
-    let isTyping = false;
-
-    async function typewriter(element, text, speed = 30) {{
-      element.innerHTML = "";
-      element.classList.add("typing");
-      
-      // Convertimos el texto en un array para manejar correctamente los emojis (UTF-16)
-      const characters = Array.from(text);
-      
-      for (const char of characters) {{
-        element.textContent += char;
-        await new Promise(r => setTimeout(r, speed));
-      }}
-      element.classList.remove("typing");
-    }}
-
-    async function startLetter() {{
-      if (isTyping) return;
-      isTyping = true;
-      
-      document.getElementById("status").textContent = "Leyendo con amor...";
-      document.getElementById("sig-target").textContent = "";
-      
-      await typewriter(document.getElementById("text-target"), msg);
-      
-      document.getElementById("sig-target").textContent = `— ${{emisor}}, ${{fecha}}`;
-      isTyping = false;
-    }}
-  </script>
-</body>
-</html>
-"""
-
-def _js_str(s: str) -> str:
-    # Asegura que el string sea seguro para JS y use comillas invertidas
-    if s is None: return "``"
-    return "`" + s.replace("`", "\\`").replace("${", "\\${") + "`"
-
-@app.route("/")
-def home():
-    return HTML_TEMPLATE.format(
-        titulo=CONFIG["titulo"],
-        nombre_receptor=CONFIG["nombre_receptor"],
-        color_principal=CONFIG["color_principal"],
-        color_secundario=CONFIG["color_secundario"],
-        accent=CONFIG["accent"],
-        mensaje_js=_js_str(CONFIG["mensaje"]),
-        nombre_emisor_js=_js_str(CONFIG["nombre_emisor"]),
-        fecha_js=_js_str(CONFIG["fecha"])
-    )
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+t.hideturtle()
+screen.mainloop()
